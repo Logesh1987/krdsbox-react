@@ -1,0 +1,260 @@
+// @import url('https://fonts.googleapis.com/css?family=Lato');
+
+body {
+    background: #f2f2f2;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.contentArea {
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+}
+
+header {
+    background: #fff;
+    box-shadow: 0 5px 3px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    height: 60px;
+    position: absolute;
+    top: 0;
+
+    .container {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo {
+        width: 150px;
+        margin: 12px 0;
+    }
+
+    .searchBox {
+        position: relative;
+
+        input {
+            width: 100%;
+            background: #f2f2f2;
+            border: 0;
+            height: 35px;
+            padding: 5px 5px 5px 35px;
+            outline: 0;
+
+            &:focus ~ .searchList {
+                display: block;
+                opacity: 1;
+            }
+        }
+        button {
+            background: transparent;
+            margin: auto 5px;
+            position: absolute;
+            outline: 0;
+            opacity: 0.5;
+            border: 0;
+            bottom: 0;
+            top: 0;
+        }
+    }
+
+    .searchList {
+        display: none;
+        opacity: 0;
+        transition: opacity 0.3s;
+        box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+        position: absolute;
+        z-index: 1;
+        left: 15px;
+        right: 15px;
+
+        ul {
+            margin: 0;
+            padding: 0;
+            left: 0;
+            list-style: none;
+        }
+
+        li {
+            background-color: #fff;
+            padding: 5px 10px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #ecf5ff;
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        .logo {
+            width: 100px;
+            padding-bottom: 23px;
+        }
+        .searchList {
+            font-size: 13px;
+        }
+    }
+    @media (min-width: 480px) and (max-width: 768px) {
+        .container > div {
+            width: 50%;
+        }
+    }
+}
+
+footer {
+    background: #202020;
+    text-align: center;
+    overflow: hidden;
+    width: 100%;
+    height: 40px;
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+
+    p {
+        margin: 10px;
+    }
+}
+
+.mainContainer {
+    min-height: 100vh;
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+
+.head {
+    margin-bottom: 30px;
+    h1 {
+        font-size: 48px;
+        text-transform: uppercase;
+        color: #173159;
+        padding-bottom: 10px;
+        position: relative;
+        &:after {
+            background-color: currentColor;
+            content: '';
+            width: 15%;
+            height: 1px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        @media (max-width: 480px) {
+            font-size: 28px;
+        }
+    }
+}
+
+.repoList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+        flex-basis: 30%;
+        margin-bottom: 20px;
+        position: relative;
+        
+        &:hover img.hoverGif {
+            opacity: 1;
+        }
+    }
+    a.action {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+    }
+    figure {
+        position: relative;
+        margin: 15px 0;
+        cursor: pointer;
+        img {
+            width: 100%;
+            &.hoverGif {
+                position: absolute;
+                left: 0;
+                top: 0;
+                opacity: 0;
+                transition: opacity 0.5s;
+            }
+        }
+    }
+    h2 {
+        font-size: 1.5em;
+        margin: 0 0 10px;
+    }
+    p {
+        margin: 0;
+    }
+}
+
+.boxWrap {
+    margin-bottom: 30px;
+    font-size: 19px;
+
+    &:hover {
+        figure {
+            transform: scale(1.1);
+        }
+        .txtBox {
+            transform: translateY(100%);
+        }
+    }
+
+    > div {
+        background: #fff;
+        position: relative;
+        padding-bottom: 100%;
+        height: 0;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    figure {
+        background-size: cover;
+        position: absolute;
+        transition: transform 0.8s;
+        width: 100%;
+        height: 100%;
+    }
+
+    .txtBox {
+        background-color: rgba(51,51,51,0.9);
+        color: #fff;
+        padding: 20px;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        transition: transform 0.3s;
+
+        span {
+            display: flex;
+            font-size: 0.6em;
+            border-top: 1px solid rgba(255,255,255,0.5);
+            padding-top: 5px;
+            justify-content: space-between;
+        }
+    }
+    h2 {
+        font-size: 1em;
+        margin: 0 0 10px;
+    }
+
+    p {
+        font-size: 0.6em;
+    }
+
+    @media (min-width: 480px) and (max-width: 768px) {
+        width: 50%;
+        font-size: 17px;
+    }
+}
